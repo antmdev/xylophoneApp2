@@ -17,17 +17,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-
-//    view.layer.cornerRadius = 5;
-//    view.layer.masksToBounds = true;
-    
+     
+   
     @IBAction func keyPressed(_ sender: UIButton) {
-        playSound()
+        
+        //parameter goes intp the sound function and the name is based on the sender title from the button being pressed
+       
+        playSound(soundName: sender.currentTitle!)
     }
     
 
-    func playSound() {
-            let url = Bundle.main.url(forResource: "C", withExtension: "wav")
+//enter an in put paramter called soundName - with a datatype of String
+    
+//make sure to add the input parameter to the url Resource
+    
+    func playSound(soundName: String) {
+            let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
             player = try! AVAudioPlayer(contentsOf: url!)
             player?.play()
 
